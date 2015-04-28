@@ -17,7 +17,7 @@ public class Q46 {
 
     private void permute(int[] num, BitSet visited, Deque<Integer> permutation, List<List<Integer>> ans) {
         if (permutation.size() == num.length) {
-            ans.add(new ArrayList<>(permutation));
+            ans.add(new ArrayList<Integer>(permutation));
         } else {
             for (int i = 0; i < num.length; i++) {
                 if (visited.get(i) == false) {
@@ -33,7 +33,7 @@ public class Q46 {
 
     private void permute2(List<Integer> permutation, int begin, List<List<Integer>> ans) {
         if (begin >= permutation.size()) {
-            ans.add(new ArrayList<>(permutation));
+            ans.add(new ArrayList<Integer>(permutation));
         } else {
             for (int i = begin; i < permutation.size(); i++) {
                 Collections.swap(permutation, begin, i);
@@ -41,5 +41,11 @@ public class Q46 {
                 Collections.swap(permutation, begin, i);
             }
         }
+    }
+
+    static public void main(String[] args) {
+        int[] test = new int[]{1, 2, 3};
+        Q46 q46 = new Q46();
+        System.out.println(q46.permute(test));
     }
 }
