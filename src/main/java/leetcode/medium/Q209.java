@@ -20,7 +20,7 @@ public class Q209 {
             while (end < nums.length && sum < s) sum += nums[end++];
             if (sum < s) break;
             while (start < end && sum >= s) sum -= nums[start++];
-            if (end - start + 1 < minLen) minLen = end - start + 1;
+            minLen = Math.min(end - start + 1, minLen);
         }
         return minLen == Integer.MAX_VALUE ? 0 : minLen;
     }
@@ -32,7 +32,7 @@ public class Q209 {
         for (int i = 0; i < sums.length; i++) {
             int end = binarySearch(i + 1, sums.length - 1, sums[i] + s, sums);
             if (end == sums.length) break;
-            if (end - i < minLen) minLen = end - i;
+            minLen = Math.min(end - i, minLen);
         }
         return minLen == Integer.MAX_VALUE ? 0 : minLen;
     }
@@ -50,9 +50,7 @@ public class Q209 {
     private int binarySearch(int lo, int hi, int key, int[] sums) {
         while (lo <= hi) {
             int mid = (lo + hi) / 2;
-            if (sums[mid] == key) {
-                return mid;
-            } else if (sums[mid] > key) {
+            if (sums[mid] >= key) {
                 hi = mid - 1;
             } else {
                 lo = mid + 1;
