@@ -19,7 +19,7 @@ package leetcode.medium;
  * robbed.
  *
  * For example, 1 -> 2 -> 3 -> 1 becomes 2 -> 3 if 1 is not robbed.
- *Change
+ *
  * Since every house is either robbed or not robbed and at least half of the houses are not robbed, the solution is
  * simply the larger of two cases with consecutive houses, i.e. house i not robbed, break the circle, solve it, or house
  * i + 1 not robbed. Hence, the following solution. I chose i = n and i + 1 = 0 for simpler coding. But, you can choose
