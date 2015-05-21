@@ -14,6 +14,8 @@ public class DaysBtw2Dates {
         }
     }
 
+    int[] daysOfMonth = new int[]{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
     private int getJDN(Date date) {
         int a = (14 - date.month) / 12;
         int y = date.year + 4800 - a;
@@ -24,6 +26,11 @@ public class DaysBtw2Dates {
 
     public int daysJDN(Date d1, Date d2) {
         return getJDN(d1) - getJDN(d2);
+    }
+
+    private int daysFromAD(Date date) {
+        int days = 0;
+        return days;
     }
 
     static public void main(String[] args) {

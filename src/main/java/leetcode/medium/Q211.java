@@ -15,6 +15,12 @@ public class Q211 {
         root = new TrieNode();
     }
 
+    public static void main(String[] args) {
+        Q211 q211 = new Q211();
+        q211.addWord("at");
+        q211.search("a");
+    }
+
     public void addWord(String word) {
         TrieNode node = root;
         for (char c : word.toCharArray()) {
@@ -64,11 +70,5 @@ public class Q211 {
         public boolean hasItem() {
             return item != null;
         }
-    }
-
-    public static void main(String[] args) {
-        Q211 q211 = new Q211();
-        q211.addWord("at");
-        q211.search("a");
     }
 }
