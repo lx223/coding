@@ -11,12 +11,13 @@ public class SolverTemplate {
         // Solution here
 
 
+        in.close();
         out.close();
     }
 
     static private class InputReader {
-        public BufferedReader reader;
-        public StringTokenizer tokenizer;
+        private BufferedReader reader;
+        private StringTokenizer tokenizer;
 
         public InputReader(InputStream stream) {
             reader = new BufferedReader(new InputStreamReader(stream), 32768);
@@ -36,6 +37,14 @@ public class SolverTemplate {
 
         public int nextInt() {
             return Integer.parseInt(next());
+        }
+
+        public void close() {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
