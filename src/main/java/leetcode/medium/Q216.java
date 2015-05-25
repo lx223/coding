@@ -25,7 +25,7 @@ public class Q216 {
             if (sum == n) {
                 solns.add(new ArrayList<>(sol));
             }
-        } else {
+        } else if (sum < n) {
             for (int j = i + 1; j <= 9; j++) {
                 sol.offerLast(j);
                 solve(k, n, sum + j, j, solns, sol);
