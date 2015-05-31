@@ -1,6 +1,8 @@
 # Interview Questions Solutions
 
-This repository contains Java solutions I wrote for various interview algorithm problems. When I read a solution, I am often interested in knowing the thinking process behind it before looking at the implementation. Hence, in this repository, I try to include as much thinking process of mine as possible in each question.
+This repository contains Java solutions I wrote for various interview algorithm problems. 
+
+When I read a solution, I am often more interested in knowing the thinking process behind it. Hence, I try to include as much thinking process as possible in each question.
   
 ## Todo
 1. Time and Space Efficiency
