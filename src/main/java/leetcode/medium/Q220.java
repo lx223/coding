@@ -22,16 +22,40 @@ import java.util.Map;
  * bucket. This is fine since we are checking the bucket immediately before and after as well. So, as a rule of thumb,
  * just make sure the size of the bucket is reasonable such that elements having the same bucket is immediately
  * considered duplicates or duplicates must lie within adjacent buckets. So this actually gives us a range of possible
- * bucket size. We just choose it to be t and a bucket mapping to be num / t.
+ * bucket size, i.e. t and t + 1. We just choose it to be t and a bucket mapping to be num / t.
  *
  * Another complication is that negative ints are allowed. A simple num / t just shrinks everything towards 0.
  * Therefore, we can just reposition every element to start from Integer.MIN_VALUE.
+ *
+ * Complexity:
+ *  time: O(N)
+ *  space: O(N)
  */
 public class Q220 {
     public static void main(String[] args) {
         Q220 q220 = new Q220();
         System.out.println(q220.containsNearbyAlmostDuplicate(new int[]{-3, 3}, 2, 4));
         System.out.println(q220.containsNearbyAlmostDuplicate(new int[]{-1, 2147483647}, 1, 2147483647));
+        System.out.println(q220.containsNearbyAlmostDuplicate2(new int[]{-1, 2147483647}, 1, 2147483647));
+    }
+
+    public boolean containsNearbyAlmostDuplicate2(int[] nums, int k, int t) {
+        if (k < 1 || t < 0) return false;
+        Map<Long, Long> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            long remappedNum = (long) nums[i] - Integer.MIN_VALUE;
+            long bucket = remappedNum / ((long) t + 1);
+            if (map.containsKey(bucket)
+                    || (map.containsKey(bucket - 1) && remappedNum - map.get(bucket - 1) <= t)
+                    || (map.containsKey(bucket + 1) && map.get(bucket + 1) - remappedNum <= t))
+                return true;
+            if (map.entrySet().size() >= k) {
+                long lastBucket = ((long) nums[i - k] - Integer.MIN_VALUE) / ((long) t + 1);
+                map.remove(lastBucket);
+            }
+            map.put(bucket, remappedNum);
+        }
+        return false;
     }
 
     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
