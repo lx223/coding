@@ -12,17 +12,11 @@ import java.util.Set;
  */
 public class Q219 {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
-        int lo = 0, hi = 0;
         Set<Integer> seen = new HashSet<>();
-        while (hi < nums.length) {
-            while (hi < nums.length && hi - lo <= k) {
-                if (seen.contains(nums[hi])) return true;
-                else seen.add(nums[hi]);
-                hi++;
-            }
-            while (hi - lo > k) {
-                seen.remove(Integer.valueOf(nums[lo++]));
-            }
+        for (int i = 0; i < nums.length; i++) {
+            if (seen.contains(nums[i])) return true;
+            else seen.add(nums[i]);
+            if (seen.size() > k) seen.remove(nums[i - k]);
         }
         return false;
     }
