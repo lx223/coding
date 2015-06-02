@@ -26,10 +26,6 @@ import java.util.Map;
  *
  * Another complication is that negative ints are allowed. A simple num / t just shrinks everything towards 0.
  * Therefore, we can just reposition every element to start from Integer.MIN_VALUE.
- *
- * Complexity:
- *  time: O(N)
- *  space: O(k)
  */
 public class Q220 {
     public static void main(String[] args) {
@@ -39,6 +35,10 @@ public class Q220 {
         System.out.println(q220.containsNearbyAlmostDuplicate2(new int[]{-1, 2147483647}, 1, 2147483647));
     }
 
+    /*
+    time complexity: O(N)
+    space complexity: O(k)
+     */
     public boolean containsNearbyAlmostDuplicate2(int[] nums, int k, int t) {
         if (k < 1 || t < 0) return false;
         Map<Long, Long> map = new HashMap<>();
@@ -58,6 +58,10 @@ public class Q220 {
         return false;
     }
 
+    /*
+    time complexity: O(N)
+    space complexity: O(k)
+     */
     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
         if (k < 1 || t < 0) return false;
         Map<Long, Long> map = new HashMap<>();
