@@ -36,8 +36,10 @@ public class Q220 {
     }
 
     /*
-    time complexity: O(N)
-    space complexity: O(k)
+    Used bucket size of t + 1, code is simpler
+
+    Time complexity: O(N)
+    Space complexity: O(k)
      */
     public boolean containsNearbyAlmostDuplicate2(int[] nums, int k, int t) {
         if (k < 1 || t < 0) return false;
@@ -59,8 +61,10 @@ public class Q220 {
     }
 
     /*
-    time complexity: O(N)
-    space complexity: O(k)
+    Used bucket size of t
+
+    Time complexity: O(N)
+    Space complexity: O(k)
      */
     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
         if (k < 1 || t < 0) return false;
