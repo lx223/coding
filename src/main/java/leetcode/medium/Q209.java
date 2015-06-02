@@ -1,20 +1,22 @@
 package leetcode.medium;
 
 /**
- * Created by lanxiao on 12/05/15.
+ * This class contains solution to <a href = "https://leetcode.com/problems/minimum-size-subarray-sum/">LeetCode
+ * Q209</>
+ *
+ * Thinking process:
+ *
+ * Two methods:
+ * 1. maintain a minimum window O(N)
+ * 2. use cumulative sum and binary search O(NLogN)
  */
 public class Q209 {
-    /*
-    LeetCode Q209:
-        Given an array of n positive integers and a positive integer s, find the minimal length of a subarray of
-        which the sum ≥ s. If there isn't one, return 0 instead
-    Thinking process:
-        Two methods:
-            1. maintain a minimum window O(N)
-            2. use cumulative sum and binary search O(NLogN)
-    */
 
-    private int solveN(int s, int[] nums) {
+    static public void main(String[] args) {
+        System.out.println(solveN(7, new int[]{2, 5}));
+    }
+
+    static private int solveN(int s, int[] nums) {
         int start = 0, end = 0, sum = 0, minLen = Integer.MAX_VALUE;
         while (end < nums.length) {
             while (end < nums.length && sum < s) sum += nums[end++];
@@ -38,8 +40,8 @@ public class Q209 {
     }
 
     /**
-     * This method returns the smallest index of elements that are >= key
-     * It returns sums.length if no such elements exist
+     * This method returns the smallest index of elements that are >= key It returns sums.length if no such elements
+     * exist
      *
      * @param lo   the lower index
      * @param hi   the higher index
