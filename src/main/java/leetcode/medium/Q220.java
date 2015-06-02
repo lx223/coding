@@ -29,7 +29,7 @@ import java.util.Map;
  *
  * Complexity:
  *  time: O(N)
- *  space: O(N)
+ *  space: O(k)
  */
 public class Q220 {
     public static void main(String[] args) {
