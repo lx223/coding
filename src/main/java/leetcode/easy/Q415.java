@@ -23,10 +23,10 @@ public class Q415 {
             int digit1 = 0;
             int digit2 = 0;
             if (num1Head >= 0) {
-                digit1 = num1.charAt(num1Head) - '0';
+                digit1 = Character.getNumericValue(num1.charAt(num1Head));
             }
             if (num2Head >= 0) {
-                digit2 = num2.charAt(num2Head) - '0';
+                digit2 = Character.getNumericValue(num2.charAt(num2Head));
             }
 
             int sum = digit1 + digit2 + carry;
